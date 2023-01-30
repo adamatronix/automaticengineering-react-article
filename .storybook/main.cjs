@@ -1,4 +1,5 @@
 const path = require("path");
+const { mergeConfig } = require("vite")
 const tsconfigPaths = require("vite-tsconfig-paths");
 
 module.exports = {
@@ -18,10 +19,11 @@ module.exports = {
   "features": {
     "storyStoreV7": true
   },
-  async viteFinal(config) {
-    return {
-      ...config,
-      plugins: [...config.plugins, tsconfigPaths.default()],
-    };
-  },
+  viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      plugins: [
+        tsconfigPaths.default()
+      ]
+    })
+  }
 }
