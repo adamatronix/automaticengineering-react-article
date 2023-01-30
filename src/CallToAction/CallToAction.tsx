@@ -9,14 +9,14 @@ interface CallToActionProps {
   theme?:string
 }
 
-const Button = styled.button`
+const Button = styled.button<{theme?:string}>`
   ${fontstack.default}
   ${type('body01')}
   border: none;
   display: flex;
   outline: none;
-  color: rgb(var(--article-primary));
-  background: #F6F6F6;
+  color: ${props => props.theme === 'black' ? 'rgb(var(--article-secondary))' : 'rgb(var(--article-primary))'};
+  background: ${props => props.theme === 'black' ? 'rgb(var(--article-primary))' : '#F6F6F6'};
   cursor: pointer;
   box-sizing: border-box;
   padding: 14px 0;
@@ -26,16 +26,16 @@ const Button = styled.button`
   width: 100%;
   transition: background .2s ease;
 
-  ${media("small")`
-    width: 217px;
+  ${props => media("medium")(`
+      width: 217px;
 
-    &:hover {
-      background: rgba(var(--article-primary), 0.12);
-    }
-  `}
+      &:hover {
+        background: ${props.theme === 'black' ? 'rgba(68,68,68,1)' : 'rgba(var(--article-primary), 0.13)'};
+      }
+  `)};
 
   &:active {
-    background: rgba(var(--article-primary), 0.24);
+    background: ${props => props.theme === 'black' ? 'rgba(119,119,119,1)' : 'rgba(var(--article-primary), 0.24)'};
   }
 `
 
@@ -46,6 +46,7 @@ export const CallToAction = ({
 }: CallToActionProps) => {
   return (
     <Button
+      theme={theme}
       {...props}>
       { children }
     </Button>

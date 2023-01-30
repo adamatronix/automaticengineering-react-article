@@ -17,3 +17,10 @@ export const Light = Template.bind({});
 Light.args = {
   children: 'Contact Us'
 };
+
+export const Dark = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Dark.args = {
+  theme: 'black',
+  children: 'Visit Site'
+};
