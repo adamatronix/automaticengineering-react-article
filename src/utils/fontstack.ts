@@ -4,11 +4,11 @@ const stacks = {
   // ns = not small
   default: () =>
     css`
-      font-family: "Neue Montreal",Arial,Helvetica Neue,Helvetica,sans-serif;
+      font-family: var(--theme-font-default);
     `,
   icon: () =>
     css` 
-      font-family: 'Inter';
+      font-family: var(--theme-font-icon);
     `
 };
 
