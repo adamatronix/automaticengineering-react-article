@@ -16,9 +16,3 @@
   src: url("./NeueMontreal/neuemontreal-regularitalic-webfont.woff2") format("woff2"),
       url("./NeueMontreal/neuemontreal-regularitalic-webfont.woff") format("woff");
 }
-
-:root {
-
-  --theme-font-default: "Neue Montreal",Arial,Helvetica Neue,Helvetica,sans-serif;
-  --theme-font-icon: 'Inter';
-}
