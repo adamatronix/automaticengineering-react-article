@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Section } from 'Section/Section';
-import { ImageBlock } from 'ImageBlock/ImageBlock';
 import { media } from 'utils/mediaQuery';
 import { fontstack } from 'utils/fontstack';
 import { type } from 'utils/type';
@@ -20,12 +19,23 @@ const Inner = styled(Section)`
   position: relative;
   margin-top: 0;
   margin-bottom: 0;
+
+  & .swiper {
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+  }
 `
 
 const CustomSwiper = styled(Swiper)`
+  
   position: relative;
   overflow: visible;
   z-index: 1;
+
+  & .swiper-slide {
+    width: 60%;
+  }
 `
 
 const CustomSlide = styled(SwiperSlide)`
@@ -74,11 +84,11 @@ const NavCursor = styled.div`
 `
 
 interface CarouselProps {
-  images: Array<any>,
+  children: React.ReactNode,
 }
 
 export const Carousel = ({
-  images,
+  children,
   ...props
 }: CarouselProps) => {
   const { ref, inView, entry } = useInView();
@@ -116,6 +126,14 @@ export const Carousel = ({
     }
     //console.log(entry)
   }
+
+  const items = React.Children.map(children, (child,index) => {
+    if(React.isValidElement(child)) {
+      return <CustomSlide>{React.cloneElement(child, {})}</CustomSlide>;
+    }
+    return child;
+  });
+  
   return (
     <Wrapper contain {...props}>
       <div ref={ContainerRef}>
@@ -130,16 +148,7 @@ export const Carousel = ({
             spaceBetween={20}
             slidesPerView={"auto"}
           >
-            { images && images.map((image,i) => {
-
-              return (
-                <CustomSlide key={i}>
-                  <ImageBlock src={image.src} alt={image.alt}/>
-                </CustomSlide>
-              )
-            })}
-
-
+            { items || null }
           </CustomSwiper>
         </Inner>
       </div>

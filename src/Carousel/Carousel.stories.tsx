@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Carousel } from './Carousel';
+import { ImageBlock } from 'ImageBlock/ImageBlock';
 import imageOne from 'ImageBlock/assets/20201219_DevHynes_00055.jpeg';
+import imageBox from 'ImageSet/assets/Rectangle 2775.png';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,16 +21,15 @@ const Spacer = styled.div`
   height: 800px;
 `
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Carousel> = (args) => <><Carousel {...args} /></>;
+const Template: ComponentStory<typeof Carousel> = (args) => <>
+  <Carousel {...args}>
+    <ImageBlock src={imageBox} alt="dummy"/>
+    <ImageBlock src={imageBox} alt="dummy"/>
+    <ImageBlock src={imageBox} alt="dummy"/>
+    <ImageBlock src={imageBox} alt="dummy"/>
+    <ImageBlock src={imageBox} alt="dummy"/>
+    <ImageBlock src={imageBox} alt="dummy"/>
+  </Carousel>
+  </>;
 
 export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Default.args = {
-  images: [
-    { src: imageOne, alt: ""},
-    { src: imageOne, alt: ""},
-    { src: imageOne, alt: ""},
-    { src: imageOne, alt: ""},
-    { src: imageOne, alt: ""}
-  ]
-};
