@@ -10,7 +10,7 @@ const Grid = styled.div`
   grid-column-gap: 9px;
   grid-row-gap: 20px;
   ${media('small')`
-    grid-column-gap: 30px;
+    grid-column-gap: 20px;
   `}
 `
 
