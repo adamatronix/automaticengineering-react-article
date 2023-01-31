@@ -21,7 +21,7 @@ const GridBodyItem = styled.div`
 `
 
 interface CopyBodyProps {
-  data: string
+  data: any
 }
 
 export const CopyBody = ({
@@ -66,7 +66,7 @@ const GridRightItem = styled(GridItem)`
 `
 
 interface CopySectionProps {
-  data: Array<string>
+  data: Array<any>
 }
 
 export const CopySection = ({
