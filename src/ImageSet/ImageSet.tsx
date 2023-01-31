@@ -27,26 +27,28 @@ const GridWideItem = styled.div`
 `
 
 const GridSixteen = styled.div<{span:string}>` 
+  display: flex;
+  align-items: center;
   grid-column: span 6;
   ${props => media('small')(`
     grid-column: ${props.span};
   `)}
 `
 
-interface Image16Props {
-  items: Array<any>
+interface ImageProps {
+  children: React.ReactNode,
 }
 
 interface items {
   [key: string]: string,
  }[]
 
-export const Image16 = ({
-  items,
-  ...props
-}: Image16Props) => {
 
-  const total = items.length;
+export const Image16 = ({
+  children,
+  ...props
+}: ImageProps) => {
+
   const firstColumn:items = {
     '5': '2 / span 2',
     '4': '3 / span 2',
@@ -55,31 +57,28 @@ export const Image16 = ({
     '1': '7 / span 2'
   }
 
+  const total = React.Children.count(children);
+  const items = React.Children.map(children, (child,index) => {
+    if(React.isValidElement(child)) {
+      return <GridSixteen span={index === 0 && total < 6 ? firstColumn[total] : 'span 2'}>{React.cloneElement(child, {})}</GridSixteen>;
+    }
+    return child;
+  });
+
+
   return (
     <Section contain {...props}>
       <Grid>
-        { items ? items.map((item, index) => {
-          return (
-            <GridSixteen span={index === 0 && total < 6 ? firstColumn[total] : 'span 2'}>
-              <ImageBlock src={item.src} alt={item.alt}/>
-            </GridSixteen>
-          )
-        }) : null}
+        { items || null }
       </Grid>
     </Section>
   )
 }
 
-interface ImageProps {
-  src: string,
-  alt: string,
-  caption?: string
-}
+
 
 export const Image50 = ({
-  src,
-  alt,
-  caption,
+  children,
   ...props
 }: ImageProps) => {
 
@@ -87,7 +86,7 @@ export const Image50 = ({
     <Section contain {...props}>
       <Grid>
         <GridTightItem>
-          { src ? <ImageBlock src={src} caption={caption} alt={alt}/> : null }
+          { children }
         </GridTightItem>
       </Grid>
     </Section>
@@ -95,16 +94,14 @@ export const Image50 = ({
 }
 
 export const Image90 = ({
-  src,
-  alt,
-  caption,
+  children,
   ...props
 }: ImageProps) => {
   return (
     <Section {...props}>
       <Grid>
         <GridWideItem>
-        { src ? <ImageBlock src={src} caption={caption} alt={alt}/> : null }
+          {children}
         </GridWideItem>
       </Grid>
     </Section>
@@ -112,9 +109,7 @@ export const Image90 = ({
 }
 
 export const Image100 = ({
-  src,
-  alt,
-  caption,
+  children,
   ...props
 }: ImageProps) => {
 
@@ -122,7 +117,7 @@ export const Image100 = ({
     <Section full {...props}>
       <Grid>
         <GridWideItem>
-        { src ? <ImageBlock src={src} caption={caption} alt={alt}/> : null }
+          { children }
         </GridWideItem>
       </Grid>
     </Section>
