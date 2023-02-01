@@ -20,6 +20,7 @@ module.exports = {
     "storyStoreV7": true
   },
   viteFinal(config, { configType }) {
+    config.base = process.env.BASE_PATH || config.base;
     return mergeConfig(config, {
       plugins: [
         tsconfigPaths.default()

@@ -17,7 +17,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "BASE_PATH=/automaticengineering-react-article/ build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "@portabletext/react": "^2.0.1",
@@ -36,6 +37,7 @@
     "@storybook/addon-links": "^6.5.16",
     "@storybook/builder-vite": "^0.3.0",
     "@storybook/react": "^6.5.16",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.0.13",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
