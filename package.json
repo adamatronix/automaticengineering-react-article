@@ -1,6 +1,14 @@
 {
   "name": "@automaticengineering/react-article",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "This is a component library for creating dynamic article pages",
+  "author": "Adam Gee",
+  "license": "MIT",
+  "homepage": "https://manualengineering.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamatronix/automaticengineering-react-article"
+  },
   "type": "module",
   "module": "./dist/react-article.js",
   "types": "./dist/index.d.ts",
