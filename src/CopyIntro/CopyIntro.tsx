@@ -5,10 +5,11 @@ import { Section } from 'Section/Section';
 import { Info } from 'Info/Info';
 import { CallToAction } from 'CallToAction/CallToAction';
 import { fontstack } from 'utils/fontstack';
+import { type } from 'utils/type';
 
 const Wrapper = styled(Section)`
   ${fontstack.default}
-  line-height: 1.33;
+  ${type('body02')}
 `
 
 const Cta = styled.a`
@@ -43,7 +44,7 @@ const GridRightItem = styled.div`
 interface CopyIntroProps {
   info?: any,
   cta?: any,
-  text?: string
+  text?: any
 }
 
 export const CopyIntro = ({
