@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { ImageBlock } from 'ImageBlock/ImageBlock';
 import { Image90, Image16, Image50 } from 'ImageSet/ImageSet';
+import { CallToAction } from 'CallToAction/CallToAction';
+import { ColumnSection } from 'ColumnSection/ColumnSection';
 import { Carousel } from 'Carousel/Carousel';
 import { CopyIntro } from 'CopyIntro/CopyIntro';
 import { CopyBody } from 'CopySection/CopySection';
@@ -36,6 +38,13 @@ export const Page = ({
 
   return (
     <>
+      <Image90>
+        <ImageBlock src={heroImage} alt="adssadsad" />
+      </Image90>
+      <ColumnSection orientation="right">
+        <SanityPortable blocks={node._rawContent}/>
+        <CallToAction theme='black'>Visit Site</CallToAction>
+      </ColumnSection>
       <Image90>
         <ImageBlock src={heroImage} alt="adssadsad" />
       </Image90>
