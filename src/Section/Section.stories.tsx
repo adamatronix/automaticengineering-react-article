@@ -44,3 +44,12 @@ Contain.args = {
   contain: true,
   children: <Placeholder />
 };
+
+const StackTemplate: ComponentStory<typeof Section> = (args) => <><Section {...args} /><Section {...args} /></>;
+
+export const Stack = StackTemplate.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Stack.args = {
+  stack: true,
+  children: <Placeholder />
+};

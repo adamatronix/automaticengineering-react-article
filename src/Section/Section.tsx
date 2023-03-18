@@ -6,6 +6,7 @@ interface SectionProps {
   children: React.ReactNode;
   small?: boolean;
   full?: boolean;
+  stack?: boolean;
   contain?: boolean;
 }
 
@@ -42,11 +43,20 @@ const standardStyle = css`
   `}
 `
 
-const Wrapper = styled.div<{ small?:boolean, full?:boolean, contain?:boolean }>` 
+const Wrapper = styled.div<{ small?:boolean, full?:boolean, contain?:boolean, stack?:boolean }>` 
   ${ props => props.small ? css`
     ${smallStyle}
   ` : css` 
     ${standardStyle}
+  `}
+
+  ${ props => props.stack && css`
+    margin-top: 20px;
+    margin-bottom: 20px;
+    ${media("small")`
+      margin-top: 20px;
+      margin-bottom: 20px;
+    `}
   `}
 
   ${props => !props.full && css`
@@ -62,6 +72,7 @@ export const Section = ({
   children,
   small,
   full,
+  stack,
   contain,
   ...props
 }: SectionProps) => {
@@ -70,6 +81,7 @@ export const Section = ({
       small={small} 
       full={full} 
       contain={contain}
+      stack={stack}
       {...props}>
       { children }
     </Wrapper>
