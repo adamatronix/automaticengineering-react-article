@@ -112,11 +112,12 @@ export const Image16 = ({
 
 export const Image50 = ({
   children,
+  stack,
   ...props
 }: ImageProps) => {
 
   return (
-    <Section contain {...props}>
+    <Section contain stack={stack} {...props}>
       <Grid>
         <GridTightItem>
           { children }
@@ -128,10 +129,11 @@ export const Image50 = ({
 
 export const Image90 = ({
   children,
+  stack,
   ...props
 }: ImageProps) => {
   return (
-    <Section {...props}>
+    <Section stack={stack} {...props}>
       <Grid>
         <GridWideItem>
           {children}
@@ -143,11 +145,12 @@ export const Image90 = ({
 
 export const Image100 = ({
   children,
+  stack,
   ...props
 }: ImageProps) => {
 
   return (
-    <Section full {...props}>
+    <Section full stack={stack} {...props}>
       <Grid>
         <GridWideItem>
           { children }
