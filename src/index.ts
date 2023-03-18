@@ -8,5 +8,5 @@ export { CtaGroup } from 'CtaGroup/CtaGroup';
 export { Credits } from './Credits/Credits';
 export { SanityPortable } from './SanityPortableText/SanityPortableText';
 export { ImageBlock } from 'ImageBlock/ImageBlock';
-export { Image90, Image16, Image50 } from 'ImageSet/ImageSet';
+export { Image90, Image16, Image50, Image100, ImageDual } from 'ImageSet/ImageSet';
 export { PullQuote } from './PullQuote/PullQuote';

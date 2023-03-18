@@ -26,6 +26,14 @@ const GridWideItem = styled.div`
   grid-column: 1 / span 12;
 `
 
+const GridDual = styled.div` 
+  display: flex;
+  grid-column: span 12;
+  ${props => media('small')(`
+    grid-column: span 6;
+  `)}
+`
+
 const GridSixteen = styled.div<{span:string}>` 
   display: flex;
   align-items: center;
@@ -37,15 +45,40 @@ const GridSixteen = styled.div<{span:string}>`
 
 interface ImageProps {
   children: React.ReactNode,
+  stack?: boolean
 }
 
 interface items {
   [key: string]: string,
  }[]
 
+ export const ImageDual = ({
+  children,
+  stack,
+  ...props
+}: ImageProps) => {
+
+
+  const items = React.Children.map(children, (child) => {
+    if(React.isValidElement(child)) {
+      return <GridDual>{React.cloneElement(child, {})}</GridDual>;
+    }
+    return child;
+  });
+
+
+  return (
+    <Section contain stack={stack} {...props}>
+      <Grid>
+        { items || null }
+      </Grid>
+    </Section>
+  )
+}
 
 export const Image16 = ({
   children,
+  stack,
   ...props
 }: ImageProps) => {
 
@@ -67,7 +100,7 @@ export const Image16 = ({
 
 
   return (
-    <Section contain {...props}>
+    <Section contain stack={stack} {...props}>
       <Grid>
         { items || null }
       </Grid>
@@ -79,11 +112,12 @@ export const Image16 = ({
 
 export const Image50 = ({
   children,
+  stack,
   ...props
 }: ImageProps) => {
 
   return (
-    <Section contain {...props}>
+    <Section contain stack={stack} {...props}>
       <Grid>
         <GridTightItem>
           { children }
@@ -95,10 +129,11 @@ export const Image50 = ({
 
 export const Image90 = ({
   children,
+  stack,
   ...props
 }: ImageProps) => {
   return (
-    <Section {...props}>
+    <Section stack={stack} {...props}>
       <Grid>
         <GridWideItem>
           {children}
@@ -110,11 +145,12 @@ export const Image90 = ({
 
 export const Image100 = ({
   children,
+  stack,
   ...props
 }: ImageProps) => {
 
   return (
-    <Section full {...props}>
+    <Section full stack={stack} {...props}>
       <Grid>
         <GridWideItem>
           { children }
