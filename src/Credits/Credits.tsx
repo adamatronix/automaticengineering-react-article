@@ -81,10 +81,10 @@ export const Credits = ({
 }: CreditsProps) => {
 
     return (
-        <Wrapper contain small >  
+        <Wrapper contain small {...props}>  
           <Grid>
             <GridItem>
-              <List {...props}>
+              <List>
                   { data.map( (line:any, i:number) => {
                       return <CreditLine data={line} key={i} />
                   })}

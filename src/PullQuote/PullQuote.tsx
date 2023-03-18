@@ -32,8 +32,8 @@ export const PullQuote = ({
   ...props
 }: PullQuoteProps) => {
   return (
-    <Section contain>
-      <PullQuoteText {...props}>{children}</PullQuoteText>
+    <Section contain {...props}>
+      <PullQuoteText>{children}</PullQuoteText>
     </Section>
   )
 }
