@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ImageBlock } from 'ImageBlock/ImageBlock';
-import { Image16, Image50, Image90, Image100 } from './ImageSet';
+import { Image16, Image50, Image90, Image100, ImageDual } from './ImageSet';
 import imageOne from 'ImageBlock/assets/20201219_DevHynes_00055.jpeg';
 import imageBox from './assets/Rectangle 2775.png';
 
@@ -15,6 +15,14 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Image50>;
 
+
+const TemplateDual: ComponentStory<typeof ImageDual> = (args) => <><ImageDual {...args}><ImageBlock src={imageBox} alt="dummy"/><ImageBlock src={imageBox} alt="dummy"/><ImageBlock src={imageBox} alt="dummy"/></ImageDual></>;
+
+export const Dual = TemplateDual.bind({});
+
+Dual.args = {
+  stack: true
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template16: ComponentStory<typeof Image16> = (args) => <Image16 {...args}><ImageBlock src={imageBox} alt="dummy"/><ImageBlock src={imageBox} alt="dummy"/><ImageBlock src={imageBox} alt="dummy"/><ImageBlock src={imageBox} alt="dummy"/><ImageBlock src={imageBox} alt="dummy"/><ImageBlock src={imageBox} alt="dummy"/></Image16>;
