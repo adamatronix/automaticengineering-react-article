@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { CSSProp, StyledComponent } from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Section } from 'Section/Section';
@@ -66,7 +66,7 @@ const NavButton = styled.div`
   height: 100%;
 `
 
-const NavCursor = styled.div`
+const NavCursor = styled.div<{cssBlock?: CSSProp}>`
   position: absolute;
   width: 34px;
   height: 34px;
@@ -81,13 +81,16 @@ const NavCursor = styled.div`
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  ${({cssBlock}) => cssBlock || null}
 `
 
 interface CarouselProps {
+  navCursorCss?: CSSProp,
   children: React.ReactNode,
 }
 
 export const Carousel = ({
+  navCursorCss,
   children,
   ...props
 }: CarouselProps) => {
@@ -139,7 +142,7 @@ export const Carousel = ({
       <div ref={ContainerRef}>
         <Inner>
           <NavCover onMouseMove={onMouseMove} onMouseLeave={()=> setCursor({display: 'none', x: 0, y: 0, cursor: ''})}>
-            <NavCursor style={{ display: Cursor.display, transform: `translate(${Cursor.x}px,${Cursor.y}px)`}}>{Cursor.cursor}</NavCursor>
+            <NavCursor cssBlock={navCursorCss} style={{ display: Cursor.display, transform: `translate(${Cursor.x}px,${Cursor.y}px)`}}>{Cursor.cursor}</NavCursor>
             <NavButton onClick={onPrev}/>
             <NavButton onClick={onNext}/>
           </NavCover>
