@@ -1,15 +1,16 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { CSSProp } from 'styled-components';
 import { media } from 'utils/mediaQuery';
 import { type } from 'utils/type';
 import { fontstack } from 'utils/fontstack';
 
 interface CallToActionProps {
+  buttonCss?: CSSProp,
   children: React.ReactNode,
   theme?:string
 }
 
-const Button = styled.button<{theme?:string}>`
+const Button = styled.button<{theme?:string, cssBlock?: CSSProp}>`
   ${fontstack.default}
   ${type('body01')}
   border: none;
@@ -37,15 +38,19 @@ const Button = styled.button<{theme?:string}>`
   &:active {
     background: ${props => props.theme === 'black' ? 'rgba(119,119,119,1)' : 'rgba(var(--article-primary), 0.24)'};
   }
+
+  ${({cssBlock}) => cssBlock || null}
 `
 
 export const CallToAction = ({
+  buttonCss,
   children,
   theme = 'light',
   ...props
 }: CallToActionProps) => {
   return (
     <Button
+      cssBlock={buttonCss}
       theme={theme}
       {...props}>
       { children }

@@ -2,7 +2,7 @@ import React from 'react';
 import { PortableText } from "@portabletext/react";
 import { Paragraph } from 'RichText/RichText';
 
-const components = {
+const defaultComponents = {
   block: {
     paragraph: Paragraph,
   }
@@ -10,10 +10,12 @@ const components = {
 
 interface SanityPortableProps {
   blocks: any,
+  components?: any
 }
 
 export const SanityPortable = ({
   blocks,
+  components,
   ...props
 }: SanityPortableProps) => {
 
@@ -21,7 +23,7 @@ export const SanityPortable = ({
     <PortableText
       value={blocks}
       //@ts-ignore
-      components={components}
+      components={components || defaultComponents}
       {...props}
     />
   );

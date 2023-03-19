@@ -1,8 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { media } from 'utils/mediaQuery';
-import { type } from 'utils/type';
-import { fontstack } from 'utils/fontstack';
 import { Section } from 'Section/Section';
 
 const Grid = styled.div` 
