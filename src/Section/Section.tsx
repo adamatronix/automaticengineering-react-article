@@ -24,22 +24,22 @@ const containStyle = css`
 `
 
 const smallStyle = css`
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: var(--article-section-small-mb);
+  margin-bottom: var(--article-section-small-mb);
 
   ${media("small")`
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: var(--article-section-small);
+    margin-bottom: var(--article-section-small);
   `}
 `
 
 const standardStyle = css`
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: var(--article-section-standard-mb);
+  margin-bottom: var(--article-section-standard-mb);
 
   ${media("small")`
-    margin-top: 120px;
-    margin-bottom: 120px;
+    margin-top: var(--article-section-standard);
+    margin-bottom: var(--article-section-standard);
   `}
 `
 
