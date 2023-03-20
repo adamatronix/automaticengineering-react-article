@@ -4,4 +4,8 @@
 
   --article-primary: 34,34,34;
   --article-secondary: 255,255,255;
+  --article-section-small: 100px;
+  --article-section-small-mb: 80px;
+  --article-section-standard: 120px;
+  --article-section-standard-mb: 80px;
 }
