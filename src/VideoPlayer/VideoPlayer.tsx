@@ -18,6 +18,7 @@ const ControlsLayer = styled(animated.div)`
   z-index: 1;
   pointer-events: none;
   display: none;
+  white-space: nowrap;
 
   ${media('small')`
     display: block;
