@@ -41,16 +41,17 @@ const Name = styled(LineText)`
 
 const Grid = styled.div` 
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-column-gap: 15px;
 
   ${media('small')`
     grid-column-gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
   `}
 `
 
 const GridItem = styled.div` 
-  grid-column: 2 / span 10;
+  grid-column: 2 / span 4;
 
   ${media('small')`
     grid-column: 4 / span 6;
