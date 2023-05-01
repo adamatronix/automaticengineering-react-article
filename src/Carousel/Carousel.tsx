@@ -138,9 +138,9 @@ export const Carousel = ({
   });
   
   return (
-    <Wrapper contain {...props}>
+    <Wrapper full {...props}>
       <div ref={ContainerRef}>
-        <Inner>
+        <Inner contain>
           <NavCover onMouseMove={onMouseMove} onMouseLeave={()=> setCursor({display: 'none', x: 0, y: 0, cursor: ''})}>
             <NavCursor cssBlock={navCursorCss} style={{ display: Cursor.display, transform: `translate(${Cursor.x}px,${Cursor.y}px)`}}>{Cursor.cursor}</NavCursor>
             <NavButton onClick={onPrev}/>

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Carousel } from './Carousel';
 import { ImageBlock } from 'ImageBlock/ImageBlock';
@@ -16,10 +15,6 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Carousel>;
 
-
-const Spacer = styled.div`
-  height: 800px;
-`
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Carousel> = (args) => <>
   <Carousel {...args}>
