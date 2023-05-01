@@ -7,10 +7,11 @@ import { Section } from 'Section/Section';
 const Grid = styled.div` 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 9px;
-  grid-row-gap: 20px;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
   ${media('small')`
     grid-column-gap: 20px;
+    grid-row-gap: 20px;
   `}
 `
 
