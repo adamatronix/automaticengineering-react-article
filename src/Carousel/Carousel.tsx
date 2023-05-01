@@ -33,16 +33,18 @@ const CustomSwiper = styled(Swiper)`
   overflow: visible;
   z-index: 1;
 
-  & .swiper-slide {
-    width: 60%;
-  }
+  ${media('small')`
+    & .swiper-slide {
+      width: 60%;
+      max-width: 1000px;
+    }
+  `}
 `
 
 const CustomSlide = styled(SwiperSlide)`
   position: relative;
-  border-radius: 16px;
+  border-radius: var(--theme-container-radius);
   overflow: hidden;
-  width: 60%;
 `
 
 const NavCover = styled.div`
@@ -120,6 +122,7 @@ export const Carousel = ({
       const x = e.clientX - containerBounding.x;
       const y = e.clientY - containerBounding.y;
 
+      console.log(containerBounding)
       setCursor({
         display: 'flex',
         x: x - 32/2,
@@ -140,7 +143,7 @@ export const Carousel = ({
   return (
     <Wrapper full {...props}>
       <div ref={ContainerRef}>
-        <Inner contain>
+        <Inner>
           <NavCover onMouseMove={onMouseMove} onMouseLeave={()=> setCursor({display: 'none', x: 0, y: 0, cursor: ''})}>
             <NavCursor cssBlock={navCursorCss} style={{ display: Cursor.display, transform: `translate(${Cursor.x}px,${Cursor.y}px)`}}>{Cursor.cursor}</NavCursor>
             <NavButton onClick={onPrev}/>
@@ -148,15 +151,16 @@ export const Carousel = ({
           </NavCover>
           <CustomSwiper
             ref={SwiperRef}
-            slidesPerView={"auto"}
             breakpoints={{
               // when window width is >= 640px
               0: {
-                spaceBetween: 16
+                spaceBetween: 16,
+                slidesPerView: 1.1
               },
               // when window width is >= 768px
               768: {
-                spaceBetween: 20
+                spaceBetween: 20,
+                slidesPerView: "auto"
               },
             }}
           >
