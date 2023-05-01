@@ -7,10 +7,11 @@ import { fontstack } from 'utils/fontstack';
 interface CallToActionProps {
   buttonCss?: CSSProp,
   children: React.ReactNode,
-  theme?:string
+  theme?:string,
+  full?:boolean
 }
 
-const Button = styled.button<{theme?:string, cssBlock?: CSSProp}>`
+const Button = styled.button<{theme?:string, full?:boolean, cssBlock?: CSSProp}>`
   ${fontstack.default}
   ${type('body01')}
   border: none;
@@ -26,9 +27,14 @@ const Button = styled.button<{theme?:string, cssBlock?: CSSProp}>`
   justify-content: center;
   width: 100%;
   transition: background .2s ease;
-  max-width: 217px;
+
+
+  ${(props) => !props.full && `max-width: 217px;`}
   
+
   ${props => media("medium")(`
+      width: 217px;
+
       &:hover {
         background: ${props.theme === 'black' ? 'rgba(68,68,68,1)' : 'rgba(var(--article-primary), 0.13)'};
       }
@@ -44,6 +50,7 @@ const Button = styled.button<{theme?:string, cssBlock?: CSSProp}>`
 export const CallToAction = ({
   buttonCss,
   children,
+  full,
   theme = 'light',
   ...props
 }: CallToActionProps) => {
@@ -51,6 +58,7 @@ export const CallToAction = ({
     <Button
       cssBlock={buttonCss}
       theme={theme}
+      full={full}
       {...props}>
       { children }
     </Button>
