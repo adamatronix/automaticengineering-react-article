@@ -19,6 +19,6 @@ Default.args = {
   { title: "Creative Direction", name: "Dave Reid"},
   { title: "Art Direction", name: "Julian Cheng"},
   { title: "Photography", name: "Abdela Igmirien"},
-  { title: "Development", name: "Adam Gee"}
+  { title: "Development", name: "Adam Gee", href: "https://google.com"}
 ]
 };

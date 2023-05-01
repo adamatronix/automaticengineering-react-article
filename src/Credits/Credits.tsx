@@ -39,6 +39,21 @@ const Name = styled(LineText)`
   text-align: left;
 `
 
+const Anchor = styled.a`
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.4;
+  }
+`
+
+const Arrow = styled.span`
+
+`
+
 const Grid = styled.div` 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -68,7 +83,7 @@ const CreditLine = ({
 }: CreditLineProps) => {
 
     return(
-        <Line {...props}><Title>{data.title}</Title><Name>{data.name}</Name></Line>
+        <Line {...props}><Title>{data.title}</Title>{ data.href ? <Anchor href={data.href} target="__blank"><Name>{data.name} <Arrow>→</Arrow></Name></Anchor> : <Name>{data.name}</Name>}</Line>
     )
 }
 
