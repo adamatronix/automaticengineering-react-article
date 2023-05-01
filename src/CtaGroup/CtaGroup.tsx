@@ -47,7 +47,7 @@ export const CtaGroup = ({
         return (
           <ButtonWrapper>
             <Anchor href={button.href} target="_blank">
-              <CallToAction theme={button.theme}>{ button.label }</CallToAction>
+              <CallToAction full theme={button.theme}>{ button.label }</CallToAction>
             </Anchor>
           </ButtonWrapper>
         )
