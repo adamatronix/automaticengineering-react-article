@@ -39,18 +39,34 @@ const Name = styled(LineText)`
   text-align: left;
 `
 
+const Anchor = styled.a`
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.4;
+  }
+`
+
+const Arrow = styled.span`
+
+`
+
 const Grid = styled.div` 
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-column-gap: 15px;
 
   ${media('small')`
     grid-column-gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
   `}
 `
 
 const GridItem = styled.div` 
-  grid-column: 2 / span 10;
+  grid-column: 2 / span 4;
 
   ${media('small')`
     grid-column: 4 / span 6;
@@ -67,7 +83,7 @@ const CreditLine = ({
 }: CreditLineProps) => {
 
     return(
-        <Line {...props}><Title>{data.title}</Title><Name>{data.name}</Name></Line>
+        <Line {...props}><Title>{data.title}</Title>{ data.href ? <Anchor href={data.href} target="__blank"><Name>{data.name} <Arrow>→</Arrow></Name></Anchor> : <Name>{data.name}</Name>}</Line>
     )
 }
 

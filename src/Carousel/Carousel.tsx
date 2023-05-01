@@ -148,8 +148,17 @@ export const Carousel = ({
           </NavCover>
           <CustomSwiper
             ref={SwiperRef}
-            spaceBetween={20}
             slidesPerView={"auto"}
+            breakpoints={{
+              // when window width is >= 640px
+              0: {
+                spaceBetween: 16
+              },
+              // when window width is >= 768px
+              768: {
+                spaceBetween: 20
+              },
+            }}
           >
             { items || null }
           </CustomSwiper>

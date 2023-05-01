@@ -26,10 +26,9 @@ const Button = styled.button<{theme?:string, cssBlock?: CSSProp}>`
   justify-content: center;
   width: 100%;
   transition: background .2s ease;
-
+  max-width: 217px;
+  
   ${props => media("medium")(`
-      width: 217px;
-
       &:hover {
         background: ${props.theme === 'black' ? 'rgba(68,68,68,1)' : 'rgba(var(--article-primary), 0.13)'};
       }

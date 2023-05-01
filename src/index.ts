@@ -10,3 +10,4 @@ export { SanityPortable } from './SanityPortableText/SanityPortableText';
 export { ImageBlock } from 'ImageBlock/ImageBlock';
 export { Image90, Image16, Image50, Image100, ImageDual } from 'ImageSet/ImageSet';
 export { PullQuote } from './PullQuote/PullQuote';
+export { VideoPlayer } from './VideoPlayer/VideoPlayer';
