@@ -47,10 +47,6 @@ const Wrapper = styled.div`
   overflow: hidden;
   mask-image: -webkit-radial-gradient(white, black);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-
-  ${media('small')`
-    border-radius: calc(var(--theme-container-radius) / 2);
-  `}
 `
 
 const VideoTag = styled.video.withConfig({
